@@ -1,0 +1,20 @@
+//python -m grpc_tools.protoc -I . --python_out=. --pyi_out=. --grpc_python_out= neuroservice.proto
+
+syntax = "proto3";
+
+//option go_package="github.com/ntl-y/neuro-pic-proto";
+
+package neuroproto;
+
+service NeuroService {
+    rpc GeneratePicture (GeneratePictureRequest) returns (GeneratePictureResponse) {}
+}
+
+message GeneratePictureRequest{
+    bytes OriginalImage = 1;
+    bytes StyleImage = 2;
+}
+
+message GeneratePictureResponse {
+    bytes ResultImage = 1;
+}
