@@ -17,10 +17,11 @@ class NeuroService(proto_grpc.NeuroService):
 
 
 def serve():
+    print("Server starting")
     port = "2000"
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     proto_grpc.add_NeuroServiceServicer_to_server(NeuroService(), server)
-    server.add_insecure_port("localhost:2000")
+    server.add_insecure_port("0.0.0.0:2000")
     server.start()
     print("Server started, listening on " + port)
     server.wait_for_termination()
