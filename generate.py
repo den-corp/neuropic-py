@@ -12,7 +12,7 @@ class NeuralStyleTransfer:
         self.content_image_path = content_image_path
         self.style_image_path = style_image_path
         
-        
+        # test
     #функция которая преобразует фото из рбг в ргб
     def deprocess_img(self, processed_img):
         x = processed_img.copy()
